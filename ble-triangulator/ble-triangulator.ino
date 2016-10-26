@@ -13,6 +13,18 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(HEADLIGHTS, OUTPUT);
   pinMode(TAILLIGHTS, OUTPUT);
+
+  NaiveBayes nb;
+  nb.addModel(1, 0.01, 0.001);
+  nb.addModel(2, 0.02, 0.002);
+
+  Category categories[2];
+  categories[0].id = 1;
+  categories[1].id = 2;
+  double observations[2];
+  observations[0] = -0.01;
+  observations[1] = 0.15;
+  nb.classify(categories, 2, observations, 2);  
 }
 
 void loop() {

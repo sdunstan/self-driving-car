@@ -40,7 +40,7 @@ class NaiveBayes {
          * upon return, categories will be populated with the result. We do it like this so that you
          * can use automatic memory allocation instead of worrying about deallocating.
          */
-        void classify(Category categories[], const size_t numCategories, const double observations[], const size_t numObservations);
+        void classify(Category categories[], const int numCategories, const double observations[], const int numObservations);
 
     private:
         Model** model;
