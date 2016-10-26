@@ -18,3 +18,12 @@ stopped, or 100% backwards.
 All the parts are less than $100.
 
 Fun.
+
+## The Plan
+
+* As of now, we need to wait for the 2.0 firmware for Curie. The current version does not support the BLE Central Role. This is needed to implement the BLE beacon triangulation.
+* To mitigate, we will write the BLE code on Android. When Curie is ready, we port to Arduino.
+* In addition, we can implement the Bayesian control code and test that.
+
+That's the plan!
+
