@@ -5,6 +5,14 @@ NaiveBayes::NaiveBayes() {
     this->modelSize = 0;
 }
 
+NaiveBayes::~NaiveBayes() {
+  for (int i = this->modelSize-1; i > 0; i--) {
+    delete this->model[i];
+  }
+  delete this->model;
+}
+
+
 NaiveBayes* NaiveBayes::addModel(const uint8_t id, const double mean, const double standardDeviation) {
     int n = this->modelSize;
     Model** temp = new Model*[n+1];

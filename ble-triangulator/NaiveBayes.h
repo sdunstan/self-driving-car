@@ -29,6 +29,7 @@ typedef struct {
 class NaiveBayes {
     public:
         NaiveBayes();
+        ~NaiveBayes();
 
         /*
          * Setup the model by adding as many categories as you have.
