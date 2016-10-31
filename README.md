@@ -12,8 +12,7 @@ to figure out how to drive. Basically, somthing like this:
   
 Where the effectors are the steering and the accelerator.
 
-This is a pretty simple setup. The steering can either be 100% left, 0, or 100% right. Likewise, the accelerator can either be 100% forward, 
-stopped, or 100% backwards.
+This is a pretty simple setup. ~The steering can either be 100% left, 0, or 100% right. Likewise, the accelerator can either be 100% forward, stopped, or 100% backwards.~ Turns out the H-bridge will allow a continuious range. This will make the intelligence easier as I can now use z-score normalization (z = (x - mean)/std.dev.). Previously, I was going to have to have three models to figure out left vs. right. vs. center.
 
 All the parts are less than $100.
 

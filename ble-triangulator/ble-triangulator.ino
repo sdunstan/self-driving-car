@@ -7,6 +7,9 @@
 #define HEADLIGHTS 2
 #define TAILLIGHTS 3
 
+#define echoPin 9
+#define trigPin 8 
+
 // motor 1 drive
 int enA = 5;
 int in1 = 10;
@@ -22,6 +25,9 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(HEADLIGHTS, OUTPUT);
   pinMode(TAILLIGHTS, OUTPUT);
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
 
   pinMode(enA, OUTPUT);
   pinMode(enB, OUTPUT);
@@ -58,6 +64,17 @@ void setup() {
 }
 
 void loop() {
+
+  taillights(false);
+  if (readDistance() <= 15) {
+    taillights(true);
+  }
+
+  delay(500);
+  
+}
+
+void driveTest() {
   forward(255);
   delay(2000);
   stop();
@@ -65,7 +82,7 @@ void loop() {
   backward(255);
   delay(2000);
   stop();
-  delay(2000);
+  delay(2000);  
 }
 
 void lights(int pin, boolean on) {
@@ -132,31 +149,18 @@ void center() {
   digitalWrite(in4, LOW);  
 }
 
-void demoOne()
-{
-  // this function will run the motors in both directions at a fixed speed
-  // turn on motor A
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  // set speed to 200 out of possible range 0~255
-  analogWrite(enA, 200);
-  // turn on motor B
-  digitalWrite(in3, HIGH);
-  digitalWrite(in4, LOW);
-  // set speed to 200 out of possible range 0~255
-  analogWrite(enB, 200);
-  delay(2000);
-  // now change motor directions
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);  
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, HIGH); 
-  delay(2000);
-  // now turn off motors
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);  
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, LOW);
+long readDistance() {
+  long duration, distance;
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = (duration/2) / 29.1;
+
+  return distance;
 }
+
 
 
