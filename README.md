@@ -27,3 +27,15 @@ Fun.
 
 That's the plan!
 
+## What is done, what is left to do
+
+### Done
+* Hardware deconstructed and reconstructed. Chassis still in good shape.
+* H-bridge, front and rear LEDs, and power all working.
+* Code for movement is complete.
+* Code for Bayesian classificiation is complete and tested.
+
+### To Do
+* Ultrasonic range finder needs to be hooked up and telemetry code needs to be written
+* A basic integration with the intelligence
+
